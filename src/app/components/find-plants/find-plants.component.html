@@ -1,0 +1,47 @@
+<form [formGroup]="filterPlantsForm">
+  <div class="form-group">
+    <label for="season">Season</label>
+    <select class="form-control" formControlName="bloom_time">
+      <option>Summer</option>
+      <option>Winter</option>
+      <option>Spring</option>
+      <option>Autum</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="type">Types</label>
+    <select class="form-control" formControlName="plant_type">
+      <option>None</option>
+      <option>Shrub</option>
+      <option>Tree</option>
+      <option>Perennial</option>
+      <option>Grass</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <select class="form-control" formControlName="appropriate_location">
+      <option>None</option>
+      <option>Garden</option>
+      <option>Roof</option>
+      <option>Sidewalk</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="value">Value</label>
+    <select class="form-control" formControlName="habitat_value">
+      <option>None</option>
+      <option>Pollinator</option>
+      <option>Cover</option>
+      <option>Fruit</option>
+      <option>Nesting</option>
+      <option>Greens</option>
+      <option>Buds</option>
+    </select>
+  </div>
+  <p>
+    <button type="button" class="btn btn-primary" (click)="submit()">
+      Filter
+    </button>
+  </p>
+</form>

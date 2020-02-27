@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <app-find-plants (filter)="onFilter($event)"></app-find-plants>
+
+  <div class="row" *ngIf="plants$ | async; let plants">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Common Name</th>
+          <th>Plant Type</th>
+          <th>Bloom Time</th>
+          <th>Flower Color</th>
+          <th>Soil Type</th>
+          <th>Habitat Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plant of plants">
+          <td scope="row">
+            <app-view-plant-modal [plant]="plant">{{
+              plant.common_name
+            }}</app-view-plant-modal>
+          </td>
+          <td>{{ plant.plant_type }}</td>
+          <td>{{ plant.bloom_time }}</td>
+          <td>{{ plant.flower_color }}</td>
+          <td>{{ plant.soil_type }}</td>
+          <td>{{ plant.habitat_value }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination
+      [totalItems]="plants.length"
+      [maxSize]="15"
+      [(ngModel)]="currentPage"
+    ></pagination>
+  </div>
+</div>

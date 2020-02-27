@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Common Name</th>
+        <th>Plant Type</th>
+        <th>Bloom Time</th>
+        <th>Flower Color</th>
+        <th>Soil Type</th>
+        <th>Habitat Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plant of plants">
+        <td scope="row">{{ plant.common_name }}</td>
+        <td>{{ plant.plant_type }}</td>
+        <td>{{ plant.bloom_time }}</td>
+        <td>{{ plant.flower_color }}</td>
+        <td>{{ plant.soil_type }}</td>
+        <td>{{ plant.habitat_value }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination
+    [totalItems]="60"
+    [(ngModel)]="currentPage"
+    (pageChanged)="pageChanged($event)"
+  ></pagination>
+</div>
